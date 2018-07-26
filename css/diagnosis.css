@@ -1,0 +1,40 @@
+body { 
+	margin: 0; 
+	overflow: hidden;
+	background-image: url(../images/ibg.jpg);
+}
+table{
+	top: 25px;
+	vertical-align: middle;
+	text-align:center;
+	z-index: 20;
+	position: fixed;
+	color: black;
+	border: 1px solid green;
+	font-family: Georgia;
+}
+th,td{
+	font-size: 22px;
+	border: 3px solid green;
+	padding: 22px;
+	border-collapse: collapse;
+	opacity: 1;
+}
+select{
+	font-size: 22px;
+	color: solid white;
+}
+
+.box{
+    border: 2px solid red;
+    padding: 10px;
+    margin: 10px;
+}
+#score{
+	color: white;
+}
+
+#result{
+    font-size:22px;
+    color: white;
+}

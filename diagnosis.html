@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Diagnosis</title>
+	<link rel="stylesheet" type="text/css" href="css/diagnosis.css">
+	
+</head>
+<body>
+
+	<table border="1"> 
+  <tr>
+    <th></th>
+    <th></th>
+    <th>Point</th>
+  </tr>
+
+  <tr>
+    <th>Thrombocytopenia</th>
+    <th>
+    <select id="throm" onchange="point0()">
+  <option value=" "></option>
+  <option value = "2"> >50% fall or nadir 20-100 × 10^9/L </option>
+  <option value = "1"> 30%-50% fall or platelet nadir 10-19 × 10^9/L </option>
+  <option value= "0"> <30% or platelet nadir <10 × 10^9/L </option>
+	</select>
+    </th>
+    <th id="c0"> 
+      <script type="text/javascript">
+        function point0(){
+          var x = document.getElementById("throm").value;
+          document.getElementById("c0").innerHTML = x;
+        }
+      </script>
+    </th>
+  </tr>
+
+  <tr>
+    <th>Timing of platelet count fall</th>
+    <th><select id="tim" onchange="point1()">
+    <option value=" "></option>
+  	<option value = "2"> Onset between days 5 and 10 or <1 day of recent heparin exposure (past 100 days) </option>
+  	<option value = "1"> Onset of >10 days of recent heparin exposure </option>
+  	<option value= "0"> Onset without recent heparin exposure</option>
+	</select>
+	</th>
+    <th id="c1">
+      <script type="text/javascript">
+        function point1(){
+          var y = document.getElementById("tim").value;
+          document.getElementById("c1").innerHTML = y;
+        }
+      </script>
+    </th>
+  </tr>
+
+  <tr>
+    <th>Thrombosis or other sequelae</th>
+    <th>
+<select id="seq" onchange="point2()">
+  <option value=" "></option>
+  <option value= "2"> New thrombosis, skin necrosis, post heparin bolus acute systemic reaction </option>
+  <option value= "1"> Progressive or recurrent thrombosis, erythematous skin lesions, suspected thrombosis </option>
+  <option value= "0"> None </option>
+</select></th>
+    <th id="c2">
+      <script type="text/javascript">
+        function point2(){
+          var z = document.getElementById("seq").value;
+          document.getElementById("c2").innerHTML = z;
+        }
+      </script>
+    </th>
+  </tr>
+
+  <tr>
+    <th>Other cause for thrombocytopenia</th>
+    <th>
+<select id="other" onchange="point3()">
+  <option value=" "></option>
+  <option value = "2"> None evident </option>
+  <option value = "1"> Possible </option>
+  <option value= "0"> Definite </option>
+</select></th>
+    <th id="c3">
+      <script type="text/javascript">
+        function point3(){
+          var m = document.getElementById("other").value;
+          document.getElementById("c3").innerHTML = m;
+        }
+      </script>
+    </th>
+  </tr>
+  <tr>
+  <th id="score">4Ts score final score</th>
+  <th>
+      <button type="button" onclick = "calculator()">Calculator</button>
+  </th>
+  <th id="result">
+    <script type="text/javascript">
+      function calculator(){
+        var x = document.getElementById("throm").value;
+        var y = document.getElementById("tim").value;
+        var z = document.getElementById("seq").value;
+        var m = document.getElementById("other").value;
+
+        result.innerHTML = (parseFloat(x) + parseFloat(y) + parseFloat(z) + parseFloat(m));
+      }
+    </script>
+  </th>
+</tr>
+
+<tr>
+  <th> score: 6-8 = high </th>
+  <th> score: 4-5 = intermediate </th>
+  <th> score: 0-3 = low </th>
+</tr>
+
+</table>
+</body>
+</html>
